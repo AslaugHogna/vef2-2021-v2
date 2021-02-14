@@ -1,0 +1,39 @@
+{
+  "name": "vef2-2021-v2",
+  "version": "1.0.0",
+  "description": "[Kynning í fyrirlestri](https://www.youtube.com/watch?v=1kRJBE040oY).",
+  "main": ".eslintrc.js",
+  "type": "module",
+  "scripts": {
+    "setup": "node setup.js",
+    "start": "node app.js",
+    "test:eslint": "eslint app.js ./src/**/*.js --fix",
+    "test:stylelint": "stylelint ./public/styles.css",
+    "test": "concurrently npm:test:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AslaugHogna/vef2-2021-v2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AslaugHogna/vef2-2021-v2/issues"
+  },
+  "homepage": "https://github.com/AslaugHogna/vef2-2021-v2#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.9.2",
+    "pg": "^8.5.1",
+    "xss": "^1.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "stylelint": "^13.9.0",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}

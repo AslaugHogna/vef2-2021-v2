@@ -1,0 +1,27 @@
+<section class="table">
+  <div class="signatures">
+    <% if (list.length === 0) { %>
+      <p>Engar undirskriftir.</p>
+    <% } %>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Dags</th>
+          <th>Nafn</th>
+          <th>Athugasemd</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% list.forEach((signature) => { %>
+          <tr>            
+            <td><%= signature.signed.toISOString() %></td>
+            <td><%= signature.name %></td>
+            <td><%= signature.comment %></td>
+          </tr>
+        <% }); %>
+      </tbody>    
+    </table>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  background-color: #ffffec;
+  font-size: 16px;
+}
+
+h1, h2 {
+  display:flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.field, .button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #fff;
+  border-color:#bdbe7f;
+  border-radius: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 200px;
+}
+
+button:hover {
+  background-color: #bdbe7f
+}
+
+.field input,
+.field textarea {
+  border: 1px solid #bdbe7f;
+  border-radius: 3px;
+  padding: 8px;
+  max-width: 800px;
+  width: 600px;
+}
+
+.field label {
+  margin-right: 1.5rem;
+}
+
+.field--invalid input,
+.field--invalid textarea {
+  border-color: #855;
+  background-color: #fbb;
+}
+
+.field--checkbox input {
+  width: 30px;
+}
+
+.field--checkbox label {
+  align-items: center;
+  display:flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid #bdbe7f;
+  font-family: serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: 1000px;
+}
+
+td,
+th {
+    border: 1px solid #bdbe7f;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+.midja {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+ul {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  list-style: inside;
+}
