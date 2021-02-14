@@ -1,6 +1,6 @@
 <%- include('header') -%>
 
-<h1>Undirskriftarlisti</h1>
+<h1>Undir&shy;skriftar&shy;listi</h1>
 
 <form method="post" action="/">
   <div class="field<%= locals.isInvalid('name', errors) ?  ' field--invalid' : '' %>">
@@ -36,6 +36,7 @@
 
 <div class="separator"></div>
 
+<h2>Undirskriftalisti</h2>
 <section class="table midja">
   <div class="signatures">
     <% if (list.length === 0) { %>
