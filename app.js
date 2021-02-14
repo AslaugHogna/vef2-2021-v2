@@ -1,9 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
-dotenv.config();
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { router } from './registration.js';
+
+dotenv.config();
 
 const {
   PORT: port = 3000,
@@ -30,7 +31,7 @@ app.use('/', router);
  * @returns {boolean} `true` ef `field` er í `errors`, `false` annars
  */
 function isInvalid(field, errors) {
-  return Boolean(errors.find(i => i.param === field));
+  return Boolean(errors.find((i) => i.param === field));
 }
 
 app.locals.isInvalid = isInvalid;

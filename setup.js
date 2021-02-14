@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
-dotenv.config();
 import fs from 'fs';
 import pg from 'pg';
 import util from 'util';
+
+dotenv.config();
 
 const {
   DATABASE_URL: connectionString,
@@ -17,21 +18,19 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
-
-
 const readFileAsync = util.promisify(fs.readFile);
 
 async function query(q) {
   const client = await pool.connect();
 
- // await client.connect();
+  // await client.connect();
 
   try {
     const result = await client.query(q);
 
     const { rows } = result;
     return rows;
-  } catch (err) {
+  } catch (err) { // eslint-disable-line   
     throw err;
   } finally {
     await client.end();

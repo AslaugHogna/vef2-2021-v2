@@ -1,5 +1,6 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const {
@@ -35,7 +36,7 @@ async function query(q, values = []) {
     const result = await client.query(q, values);
 
     return result;
-  } catch (err) {
+  } catch (err) { // eslint-disable-line   
     throw err;
   } finally {
     await client.end();
@@ -49,13 +50,12 @@ async function query(q, values = []) {
  * @returns {object} Hlut með niðurstöðu af því að keyra fyrirspurn
  */
 export async function insert(data) {
-  if(data.aLista === "") data.aLista = true;
   const q = `
 INSERT INTO signatures
 (name, nationalId, comment, aLista)
 VALUES
 ($1, $2, $3, $4)`;
-  const values = [data.name, data.nationalId, data.comment, data.aLista];
+  const values = [data.name, data.nationalId, data.comment, data.aLista === ''];
 
   return query(q, values);
 }
@@ -76,7 +76,7 @@ export async function select() {
  *
  * @param {string} id Id á umsókn
  * @returns {object} Hlut með niðurstöðu af því að keyra fyrirspurn
- 
+
 export async function update(id) {
   const q = `
 UPDATE signatures
@@ -86,14 +86,13 @@ WHERE id = $1`;
   return query(q, [id]);
 }
 
-
  * Eyðir umsókn.
  *
  * @param {string} id Id á umsókn
  * @returns {object} Hlut með niðurstöðu af því að keyra fyrirspurn
- 
+
 export async function deleteRow(id) {
   const q = 'DELETE FROM signatures WHERE id = $1';
 
   return query(q, [id]);
-}*/
+} */

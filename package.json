@@ -7,7 +7,7 @@
   "scripts": {
     "setup": "node setup.js",
     "start": "node app.js",
-    "test:eslint": "eslint app.js ./src/**/*.js --fix",
+    "test:eslint": "eslint app.js setup.js registration.js ./src/**/*.js --fix",
     "test:stylelint": "stylelint ./public/styles.css",
     "test": "concurrently npm:test:*"
   },
@@ -30,10 +30,12 @@
     "xss": "^1.0.8"
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "stylelint": "^13.9.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^20.0.0"
   }
 }

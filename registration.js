@@ -2,6 +2,7 @@ import express from 'express';
 import xss from 'xss';
 import { check, validationResult, body } from 'express-validator';
 import { insert, select } from './src/db.js';
+
 export const router = express.Router();
 
 /**
@@ -36,43 +37,24 @@ function sanitizeXss(fieldName) {
   };
 }
 
-/**
- * Ósamstilltur route handler fyrir undirskriftarlista.
- *
- * @param {object} req Request hlutur
- * @param {object} res Response hlutur
- * @returns {string} Lista af undirskriftum
- */
-async function signatures(req, res) {
-  const list = await select();
-
-  const data = {
-    title: 'Undirskriftir',
-    list,
-  };
-
-  return res.render('forms', data);
-}
-
-
 const validations = [
   check('name')
     .isLength({ min: 1 })
     .withMessage('Nafn má ekki vera tómt'),
 
-    check('name')
+  check('name')
     .isLength({ max: 128 })
     .withMessage('Nafn má að hámarki vera 128 stafir'),
 
-    check('nationalId')
+  check('nationalId')
     .isLength({ min: 1 })
     .withMessage('Kennitala má ekki vera tóm'),
 
-    check('nationalId')
-      .matches(/^[0-9]{6}-?[0-9]{4}$/)
-      .withMessage('Kennitala verður að vera á forminu 000000-0000 eða 0000000000'),
+  check('nationalId')
+    .matches(/^[0-9]{6}-?[0-9]{4}$/)
+    .withMessage('Kennitala verður að vera á forminu 000000-0000 eða 0000000000'),
 
-    check('comment')
+  check('comment')
     .isLength({ max: 400 })
     .withMessage('Athugasemd má að hámarki vera 400 stafir'),
 
@@ -82,7 +64,6 @@ const validations = [
 const sanitazions = [
   body('name').trim().escape(),
   sanitizeXss('name'),
-
 
   sanitizeXss('nationalId'),
   body('nationalId')
@@ -108,13 +89,12 @@ async function form(req, res) {
     name: '',
     nationalId: '',
     comment: '',
-    aLista:'',
+    aLista: '',
     list,
     errors: [],
   };
 
   res.render('forms', data);
-
 }
 
 /**
@@ -145,7 +125,6 @@ async function showErrors(req, res, next) {
     aLista,
     list,
   };
-
 
   const validation = validationResult(req);
 
@@ -186,7 +165,6 @@ async function formPost(req, res) {
 
   await insert(data);
 
-
   return res.redirect('/thanks');
 }
 
@@ -200,7 +178,7 @@ function thanks(req, res) {
   return res.render('thanks', { title: 'Takk fyrir skráninguna' });
 }
 
-//router.get('/', catchErrors(signatures));
+// router.get('/', catchErrors(signatures));
 router.get('/', form);
 router.get('/thanks', thanks);
 

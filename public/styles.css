@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;  
+  padding: 0;
 }
 
 body {
@@ -9,13 +9,15 @@ body {
   font-size: 16px;
 }
 
-h1, h2 {
-  display:flex;
+h1,
+h2 {
+  display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
-.field, .button {
+.field,
+.button {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -24,26 +26,26 @@ h1, h2 {
 
 button {
   background-color: #fff;
-  border-color:#bdbe7f;
+  border-color: #bdbe7f;
   border-radius: 10px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 2rem;
-  margin-top: 2rem;
   margin-bottom: 1rem;
+  margin-top: 2rem;
   padding: 1rem;
   width: 200px;
 }
 
 button:hover {
-  background-color: #bdbe7f
+  background-color: #bdbe7f;
 }
 
 .field input,
 .field textarea {
   border: 1px solid #bdbe7f;
   border-radius: 3px;
-  padding: 8px;
   max-width: 800px;
+  padding: 8px;
   width: 600px;
 }
 
@@ -53,8 +55,8 @@ button:hover {
 
 .field--invalid input,
 .field--invalid textarea {
-  border-color: #855;
   background-color: #fbb;
+  border-color: #855;
 }
 
 .field--checkbox input {
@@ -63,14 +65,14 @@ button:hover {
 
 .field--checkbox label {
   align-items: center;
-  display:flex;
+  display: flex;
   justify-content: center;
   vertical-align: middle;
 }
 
 table {
-  border-collapse: collapse;
   border: 2px solid #bdbe7f;
+  border-collapse: collapse;
   font-family: serif;
   font-size: 1rem;
   letter-spacing: 1px;
@@ -79,9 +81,9 @@ table {
 
 td,
 th {
-    border: 1px solid #bdbe7f;
-    padding: 5px 10px;
-    text-align: left;
+  border: 1px solid #bdbe7f;
+  padding: 5px 10px;
+  text-align: left;
 }
 
 .midja {
