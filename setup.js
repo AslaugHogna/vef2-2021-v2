@@ -6,9 +6,11 @@ import util from 'util';
 
 const {
   DATABASE_URL: connectionString,
+  NODE_ENV: nodeEnv = 'development',
 } = process.env;
 
-const pool = new pg.Pool({ connectionString });
+const ssl = nodeEnv !== 'development' ? { rejectUnauthorized: false } : false;
+const pool = new pg.Pool({ connectionString, ssl });
 
 pool.on('error', (err) => {
   console.error('Unexpected error on idle client', err);
